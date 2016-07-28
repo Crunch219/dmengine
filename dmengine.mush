@@ -171,10 +171,10 @@
 &DESCRIBE DMEngine=D&D 5E Engine for character generation and combat and adventuring simulation
 @set DMEngine/DESCRIBE=no_command visual prefixmatch public nearby
 &DRAW DMEngine=All functions used to draw the character sheets
-&DRAW`ATK_ITEM DMEngine=| [ifelse(%0, *, %b)][ljust(%1, 10)]%b%b[center(%2, 5)]%b%b[ljust(%3[switch(%4, , , /%4)], 15)] |
+&DRAW`ATK_ITEM DMEngine=| [ifelse(%0, *, %b)][ljust(align(10 -5 15, %1, %2, %3[switch(%4, , , /%4)], , %b%b), 34)] |
 &DRAW`DSAVE_ITEM DMEngine=| [ljust(%0, 23)] [u(DRAW`DSAVE_STATUS, %1, %2)] |
 &DRAW`DSAVE_STATUS DMEngine=iter(lnum(1, 3), \[[switch(#@, <=%0, switch(%1, , *, %1), %b)]\])
-&DRAW`HP_ROW DMEngine=| [ljust([ljust(%0:, 10)] %1, 35)] |
+&DRAW`HP_ROW DMEngine=| [align(10 24, %0:, %1)] |
 &DRAW`LINE DMEngine=+-[ljust(%1, ifelse(gt(%0, 4), sub(%0, 4), 35), -)]-+
 &DRAW`LVL_STAT DMEngine=| [ljust(%0, 30)] \[%1] |
 &DRAW`MAIN_STAT DMEngine=| [ljust(%0, 25)] \[[rjust(%1, 2)]] \([rjust(%2, 2)]) |
@@ -191,7 +191,7 @@
 &DRAW`SHEET`TINY_BOXES DMEngine=align(12 12 13, u(DRAW`SHEET`TINYBOX, %0, AC), u(DRAW`SHEET`TINYBOX, %0, Ini), u(DRAW`SHEET`TINYBOX, %0, Gold, 13))
 &DRAW`SHEET`TRAIT_BOX DMEngine=[u(DRAW`LINE, 80, Features & Traits)]%r[u(DRAW`TRAIT_LIST, [u(TRAITS`RACE`[u(CHARS`%0`RACE)])] [u(CHARS`%0`BACKGROUND)])][u(DRAW`LINE, 80)]
 &DRAW`SKILL DMEngine=| [ljust(%0, 26)] \[[ifelse(%1, X, %b)]\] \[[rjust(%2, 2)\] |
-&DRAW`TOP_INFO DMEngine=[ljust(%0:, 12)][ansi(u, ljust(%1, 35))]
+&DRAW`TOP_INFO DMEngine=align(12 35(u), %0:, %b%1)
 &DRAW`TRAIT DMEngine=iter(wrap(%0, 72, 76), | [ljust(switch(#@, 1, [ansi(wh, before(%i0, =).)] [after(%i0, =)], [space(4)]%i0), 76)] |%r, %r,)
 &DRAW`TRAIT_LIST DMEngine=ifelse(words(%0), iter(%0, u(DRAW`TRAIT, u(TRAITS`LIST`%i0)), ,), | [center(Currently your character doesn't have any special features or traits., 76)] |%r)
 &PARSE DMEngine=
@@ -289,7 +289,7 @@
 &TRAITS`LIST`HERMIT DMEngine=Discovery=Your hermitage has allowed you to make a unique discovery related to your seclusion.
 &TRAITS`LIST`MASKWILD DMEngine=Mask of the Wild=Can attempt to hide in light foliage, heavy rain, snow, mist, etc.
 &TRAITS`LIST`NATURALSTEALTH DMEngine=Naturally Stealthy=Can hide behind anything larger than you.
-&TRAITS`LIST`NOBLE DMEngine=Position of Privilege=People give you the benefit of the doubt and accomodate you. Can meet a local noble.
+&TRAITS`LIST`NOBLE DMEngine=Position of Privilege=People give you the benefit of the doubt and accommodate you. Can meet a local noble.
 &TRAITS`LIST`OUTLANDER DMEngine=Wanderer=Excellent memory of maps and geography. Can find food and water
 &TRAITS`LIST`SAGE DMEngine=Researcher=You can recall or research any information that can be known or found. Difficult knowledge can require an adventure.
 &TRAITS`LIST`SAILOR DMEngine=Ship's Passage=Can secure free voyage in exchange for assistance during it. Voyage length is up to DM.
