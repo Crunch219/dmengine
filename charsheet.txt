@@ -1,0 +1,38 @@
+Name:                                            ________     ____   ________
+Race:                                            \______ \   /  _ \  \______ \
+Class:                                            |    |  \  >  _ </\ |    |  \
+Alignment:                                        |----`   \/  <_\ \/ |----`   \
+Background:                                      /_______  /\_____\ \/_______  /
+Level & XP: 1 (0)                                        \/        \/        \/
++-------------------------------------+  +-AC-------+ +-Ini------+ +-Gold------+ 
+| Proficiency Bonus              [+2] |  |    0     | |   N/A    | |     0     | 
+| Passive Wisdom (Perception)    [12] |  +----------+ +----------+ +-----------+ 
++-------------------------------------+  +-Hit Points--------------------------+ 
+| STRENGTH                  [10] ( 0) |  | Health:    8 / 8                    | 
+| Saving Throws              [ ] [ 0] |  | Modifier:  0                        | 
+| Athletics                  [ ] [ 2] |  | Hit Dice:  1d8                      | 
++-------------------------------------+  +-Death Saves-------------------------+ 
+| DEXTERITY                 [10] ( 0) |  | Successes               [ ] [ ] [ ] | 
+| Saving Throws              [ ] [ 0] |  | Failures                [ ] [ ] [ ] | 
+| Acrobatics                 [ ] [ 2] |  +-------------------------------------+ 
+| Sleight of Hand            [ ] [ 2] |  | CONSTITUTION              [10] ( 0) | 
+| Stealth                    [ ] [ 2] |  | Saving Throws              [ ] [ 0] | 
++-------------------------------------+  +-------------------------------------+ 
+| INTELLIGENCE              [10] ( 0) |  | WISDOM                    [10] ( 0) | 
+| Saving Throws              [ ] [ 0] |  | Saving Throws              [ ] [ 0] | 
+| Arcana                     [ ] [ 2] |  | Animal Handling            [ ] [ 2] | 
+| History                    [ ] [ 2] |  | Insight                    [ ] [ 2] | 
+| Investigation              [ ] [ 2] |  | Medicine                   [ ] [ 2] | 
+| Nature                     [ ] [ 2] |  | Perception                 [ ] [ 2] | 
+| Religion                   [ ] [ 2] |  | Survival                   [ ] [ 2] | 
++-------------------------------------+  +-------------------------------------+ 
+| CHARISMA                  [10] ( 0) |  |  ATTACKS                            | 
+| Saving Throws              [ ] [ 0] |  |  Weapon      Bonus  Damage/Type     | 
+| Deception                  [ ] [ 2] |  |                                     | 
+| Intimidation               [ ] [ 2] |  |                                     | 
+| Performance                [ ] [ 2] |  |                                     | 
+| Persuasion                 [ ] [ 2] |  |                                     | 
++-------------------------------------+  +-------------------------------------+ 
++-Features & Traits------------------------------------------------------------+
+|    Currently your character doesn't have any special features or traits.     |
++------------------------------------------------------------------------------+
