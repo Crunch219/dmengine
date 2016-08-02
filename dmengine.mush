@@ -35,8 +35,8 @@
 &CALC DMEngine=All functions used to calculate info for the char sheets
 &CALC`CHAC DMEngine=[setq(A, u(CHARS`%0`EQ`ARMOR))][setq(B, udefault(OBJS`ARMOR`%qA`AC, 0))][setq(D, u(CALC`STAT_MOD, u(CALC`CHSTAT, %0, DEX)))][add(switch(u(TRANS`ARMORSIZE, %qA), LIGHT, add(%qB, %qD), MEDIUM, add(%qB, bound(%qD, -5, 2)), HEAVY, %qB, 0), switch(u(CHARS`%0`EQ`SHIELD), , 0, 2))]
 &CALC`CHGOLD DMEngine=udefault(CHARS`%0`GOLD, 0)
-&CALC`CHHP DMEngine=add(udefault(CHARS`%0`HP, 8), udefault(CHARS`%0`HPMOD, 0))
-&CALC`CHHPMOD DMEngine=udefault(CHARS`%0`HPMOD, 0)
+&CALC`CHHP DMEngine=add(udefault(CHARS`%0`HP, 8), u(CALC`CHHPMOD, %0))
+&CALC`CHHPMOD DMEngine=add(udefault(CHARS`%0`HPMOD, 0), udefault(RACES`[u(CHARS`%0`RACE)]`HPMOD, 0))
 &CALC`CHINI DMEngine=udefault(CHARS`%0`INI, N/A)
 &CALC`CHLVL DMEngine=udefault(CHARS`%0`LVL, 1)
 &CALC`CHMAXHP DMEngine=udefault(CHARS`%0`MAXHP, 8)
@@ -46,6 +46,7 @@
 &CALC`GEN DMEngine=Calculators for generating a new character or leveling up
 &CALC`GEN`STARTGOLD DMEngine=add(mul(die(udefault(CLASSES`[u(CHARS`%0`CLASS)]`GOLD, 5), 4), 10), udefault(BGS`[u(CHARS`%0`BACKGROUND)]`GOLD, 10))
 &CALC`GEN`STARTHP DMEngine=u(CALC`CLASSHP, %0)
+&CALC`GEN`STATS DMEngine=sort(iter(lnum(6), lmath(add, rest(sort(die(4, 6, 1))))), -n)
 &CALC`HASSKILL DMEngine=match(u(CHARS`%0`SKILLS`%1), %2)
 &CALC`HASWEAPPROF DMEngine=setinter([u(RACES`[u(CHARS`%0`RACE)]`WEAPONS)] [u(CLASSES`[u(CHARS`%0`CLASS)]`WEAPONS)], u(TRANS`WEAPONINFO, %1, TYPE))
 &CALC`HRSTR DMEngine=[udefault(CHARS`%0`LVL, 1)]d[udefault(CALC`CLASSHP, 8, %0)]
@@ -79,7 +80,7 @@
 &CHARS`#-1`LVL DMEngine=1
 &CHARS`#-1`MAXHP DMEngine=12
 &CHARS`#-1`NAME DMEngine=Somebody Cool
-&CHARS`#-1`RACE DMEngine=WOODELF
+&CHARS`#-1`RACE DMEngine=HUMAN
 &CHARS`#-1`SKILLS DMEngine=
 &CHARS`#-1`SKILLS`CHA DMEngine=INTIMIDATION PERSUASION
 &CHARS`#-1`SKILLS`DEX DMEngine=ACROBATICS
