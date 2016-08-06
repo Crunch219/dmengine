@@ -225,8 +225,9 @@
 &DRAW`TRAIT_LIST DMEngine=ifelse(words(%0), iter(%0, u(DRAW`TRAIT, u(TRAITS`LIST`%i0)), ,), | [center(Currently your character doesn't have any special features or traits., 76)] |%r)
 &GET DMEngine=
 &GET`CHHP DMEngine=elements(u(GET`CHINFO, %0, HP), match(HP MAXHP HPMOD, %1))
-&GET`CHINFO DMEngine=rest(grab(u(CHARS`%0`INFO), %1: *, |))
+&GET`CHINFO DMEngine=rest(u(GET`CHMATCH, %0, %1))
 &GET`CHIDEFAULT DMEngine=letq(O, u(GET`CHINFO, %0, %1), switch(%qO, , %2, %qO))
+&GET`CHMATCH DMEngine=grab(u(CHARS`%0`INFO), %1: *, |)
 &GET`CHSTAT DMEngine=elements(u(GET`CHINFO, %0, STATS), match(STR DEX INT CHA CON WIS, %1))
 &GET`DSAVE DMEngine=elements(u(GET`CHINFO, %0, DSAVES), match(SUCC FAIL, %1))
 &OBJS DMEngine=
@@ -618,6 +619,10 @@
 &ROLLS`LROLL DMEngine=[u(PARSE`ROLL, %0)][setr(RLIST, die(%q<DNUM>, %q<DSIZE>, 1))]|[setr(RSUM, lmath(add, %q<RLIST>))]|[if(%q<DMOD>, %q<DMOD>, 0)]|[setr(RTOT, add(%q<RSUM>, %q<DMOD>))]
 &ROLLS`ROLL DMEngine=[u(PARSE`ROLL, %0)][add(die(%q<DNUM>, %q<DSIZE>), %q<DMOD>)]
 &SET DMEngine=
+&SET`CHINFO DMEngine=&CHARS`%0`INFO me=edit(u(CHARS`%0`INFO), u(GET`CHMATCH, %0, %1), %1: %2)
+&SET`CHHP DMEngine=&CHARS`%0`INFO me=edit(u(CHARS`%0`INFO), setr(H, u(GET`CHMATCH, %0, HP)), HP: [lreplace(rest(%qH), match(HP MAXHP HPMOD, %1), %2)])
+&SET`CHSTAT DMEngine=&CHARS`%0`INFO me=edit(u(CHARS`%0`INFO), setr(S, u(GET`CHMATCH, %0, Stats)), Stats: [lreplace(rest(%qS), match(STR DEX INT CHA CON WIS, %1), bound(%2, 3, 20))])
+&SET`DSAVE DMEngine=&CHARS`%0`INFO me=edit(u(CHARS`%0`INFO), setr(D, u(GET`CHMATCH, %0, DSaves)), DSaves: [lreplace(rest(%qD), match(SUCC FAIL, %1), %2)])
 &SHEETS DMEngine=Active char sheets' dbrefs are listed here named after characters' debrefs
 &SHEETS`#-1 DMEngine=Somebody Cool
 &STATS DMEngine=List of stats and their associated skills
